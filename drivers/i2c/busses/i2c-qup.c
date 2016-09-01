@@ -1542,8 +1542,9 @@ blsp_core_init:
 	}
 
 	/* We support frequencies upto FAST Mode(400KHz) */
-	if (pdata->clk_freq <= 0 ||
-			pdata->clk_freq > 400000) {
+	/* EDITED: QUP core supports even higher frequencies, which allows us to transfer data
+	   much faster to some peripherals (e.g. MPU IMU) */
+	if (pdata->clk_freq <= 0) {
 		dev_err(&pdev->dev, "clock frequency not supported\n");
 		ret = -EIO;
 		goto err_config_failed;
