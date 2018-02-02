@@ -804,4 +804,15 @@ config SENSORS_CAPELLA_CM36283
 	  To compile this driver as a module, choose M here: the
 	  module will be called CM36283.
 
+config FASTACC_MPU
+	tristate "High-speed MPU accelerometer driver"
+	depends on I2C && SYSFS
+	default n
+	help
+	  Say Y here to enable the high-speed accelerometer driver
+	  for Invensense MPU-6xxx and MPU-9xxx devices.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called fastacc_mpu.
+
 endif
